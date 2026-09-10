@@ -122,4 +122,4 @@ ausência de significância aqui não prova igualdade, apenas que não há evid�
 3. Abra `Sprint 11 - Funil e Teste A-A-B.ipynb` e execute as células em ordem.
 
 A célula de setup procura o arquivo de dados nos caminhos possíveis e usa o primeiro que existir,
-então o notebook roda localmente, na plataforma da TripleTen e no Colab sem edição.
+então o notebook roda localmente ou qual plataforma escolher.
