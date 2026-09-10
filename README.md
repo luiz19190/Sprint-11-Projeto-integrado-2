@@ -19,8 +19,7 @@ qualquer diferença encontrada contra o grupo de teste não prova nada.
 ## Estrutura do projeto
 
 ```
-├── Sprint 11 - Funil e Teste A-A-B.ipynb              # notebook principal
-├── Sprint 11 - Funil e Teste A-A-B (TripleTen).ipynb  # mesma análise, compatível com ambiente antigo
+├── Sprint 11 - Funil e Teste A-A-B.ipynb   # notebook principal
 ├── Data/
 │   └── logs_exp_us.csv         # log de eventos do aplicativo (TSV)
 ├── images/                     # gráficos exportados
@@ -29,11 +28,6 @@ qualquer diferença encontrada contra o grupo de teste não prova nada.
 ├── LICENSE                     # MIT
 └── README.md
 ```
-
-As duas versões do notebook têm a mesma análise e os mesmos números. A versão `(TripleTen)` troca
-`ax.bar_label` por uma função equivalente, porque aquele método só existe no matplotlib 3.4 em
-diante, e importa o plotly sob `try/except` para o setup não falhar onde a biblioteca não está
-instalada.
 
 ## Os dados
 
