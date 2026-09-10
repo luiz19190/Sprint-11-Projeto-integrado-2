@@ -223,3 +223,6 @@ __marimo__/
 *.bak
 *.bak-*
 *.ipynb.bak*
+
+# Entrega da plataforma TripleTen: fica local, fora do repositorio
+Sprint 11 - Funil e Teste A-A-B (TripleTen).ipynb
