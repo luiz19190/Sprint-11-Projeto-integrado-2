@@ -13,8 +13,8 @@ Ter **dois** grupos de controle não é redundância, é controle de qualidade. 
 receberam exatamente o mesmo tratamento já diferem entre si, o mecanismo de divisão está torto e
 qualquer diferença encontrada contra o grupo de teste não prova nada.
 
-> **Status:** análise concluída. Seções 1 a 5 escritas, com conclusão em cada etapa e recomendação
-> final na seção 5.
+> **Status:** análise concluída e revisada. Seções 1 a 5 escritas, com conclusão em cada etapa e
+> recomendação final na seção 5.
 
 ## Estrutura do projeto
 
@@ -49,7 +49,8 @@ tipos e conversão do carimbo de tempo. Num log de evento "duplicado" precisa de
 virar contagem: repetição costuma ser comportamento real, não erro.
 
 **Seção 2 — Estudo dos dados.** Tamanho da base, período coberto, corte dos dias com coleta
-incompleta e verificação dos três grupos experimentais.
+incompleta e verificação dos três grupos experimentais, com qui-quadrado de aderência para o
+equilíbrio entre eles.
 
 **Seção 3 — O funil.** Frequência e alcance de cada evento, ordem real das etapas testada contra o
 relógio, conversão de etapa para etapa e localização do gargalo.
@@ -96,24 +97,26 @@ em aberto. As hipóteses estão registradas na seção 5, cada uma com o teste q
 
 O corte descartou tudo antes de 01/08, o que representa 2.826 eventos (1,16%) e 17 usuários
 (0,23%), então a análise fala de sete dias e não de catorze. A remoção de duplicatas tratou como
-suspeita apenas a linha idêntica nas quatro colunas ao mesmo tempo, 413 registros (0,17%). Os
-braços do experimento ficaram com 1,09% de desvio, acima da régua de 1% definida antes do teste, o
-que custa poder: ausência de significância aqui não prova igualdade, apenas que não há evidência de
-diferença.
+suspeita apenas a linha idêntica nas quatro colunas ao mesmo tempo, 413 registros (0,17%), dentro
+do limite de 1% da base fixado antes do resultado. Os braços do experimento ficaram com 1,09% de
+desvio, acima da régua de 1% definida antes do teste, embora o qui-quadrado de aderência não
+encontre evidência de divisão desigual (p-valor de 0,7554). A folga custa um pouco de poder:
+ausência de significância aqui não prova igualdade, apenas que não há evidência de diferença.
 
 ## Tecnologias utilizadas
 
-- Python (pandas, numpy)
+- Python (pandas)
 - seaborn e matplotlib — gráficos da análise
 - plotly — funil de conversão, onde a forma do gráfico é o próprio resultado
 - kaleido — exporta o gráfico plotly como PNG
-- scipy — distribuição normal usada no z-test de proporções, escrito à mão
+- scipy — distribuições normal e qui-quadrado, usadas no z-test de proporções e no teste de
+  aderência, os dois escritos à mão
 - Jupyter Notebook
 
 ## Como executar
 
 1. Clone o repositório.
-2. Instale as dependências: `pip install pandas numpy matplotlib seaborn plotly kaleido scipy`
+2. Instale as dependências: `pip install pandas matplotlib seaborn plotly kaleido scipy`
    O `kaleido` só é necessário para salvar o funil como PNG. Sem ele o notebook roda normalmente e
    o gráfico aparece; apenas o arquivo não é gravado.
 3. Abra `Sprint 11 - Funil e Teste A-A-B.ipynb` e execute as células em ordem.
